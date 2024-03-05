@@ -58,7 +58,7 @@ const element = () => {
             const radio = document.createElement('input');
             radio.value = value || options;
             radio.type = 'radio';
-            radio.name = values.map(el => el.value);
+            radio.name = values.map(el => el?.value||el);
             radio.addEventListener('change', hadleChange)
             lbl.prepend(radio);
             div.appendChild(lbl);
