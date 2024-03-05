@@ -37,14 +37,30 @@ const element = () => {
         values.forEach(({ value, text }) => {
             const lbl = document.createElement('label');
             lbl.innerText = text || value;
+            const check = document.createElement('input');
+            check.value = value;
+            check.type = 'checkbox';
+            check.addEventListener('change', hadleChange);
+            lbl.prepend(check);
+            div.appendChild(lbl);
+        })
+        return div;
+    }
+    //zwróć grupę radio buttonów
+    const radio = (values, hadleChange) => {
+        const div = document.createElement('div');
+        values.forEach(({ value, text }) => {
+            const lbl = document.createElement('label');
+            lbl.innerText = value || text;
             const radio = document.createElement('input');
             radio.value = value;
-            radio.type = 'checkbox';
-            radio.addEventListener('change', hadleChange);
+            radio.type = 'radio';
+            radio.name = values;
+            radio.addEventListener('change', hadleChange)
             lbl.prepend(radio);
             div.appendChild(lbl);
         })
         return div;
     }
-    return { select, checkbox }
+    return { select, checkbox, radio }
 }
