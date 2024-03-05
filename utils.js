@@ -22,10 +22,11 @@ const element = () => {
         optionDef.value = -1;
         optionDef.innerText = 'wybierz..';
         select.appendChild(optionDef);
-        values.forEach(({ value, text }) => {
+        values.forEach((options) => {
+            const { value, text } = options;
             const option = document.createElement('option');
-            option.value = value;
-            option.innerText = text || value;
+            option.value = value || options;
+            option.innerText = text || value || options;
             select.appendChild(option);
         })
         select.addEventListener('change', hadleChange)
@@ -34,11 +35,12 @@ const element = () => {
     //zwróć grupę checkboxów,
     const checkbox = (values, hadleChange) => {
         const div = document.createElement('div');
-        values.forEach(({ value, text }) => {
+        values.forEach((options) => {
+            const { value, text } = options;
             const lbl = document.createElement('label');
-            lbl.innerText = text || value;
+            lbl.innerText =  text || value || options;;
             const check = document.createElement('input');
-            check.value = value;
+            check.value = value || options;
             check.type = 'checkbox';
             check.addEventListener('change', hadleChange);
             lbl.prepend(check);
@@ -49,11 +51,12 @@ const element = () => {
     //zwróć grupę radio buttonów
     const radio = (values, hadleChange) => {
         const div = document.createElement('div');
-        values.forEach(({ value, text }) => {
+        values.forEach((options) => {
+            const { value, text } = options;
             const lbl = document.createElement('label');
-            lbl.innerText = value || text;
+            lbl.innerText = text || value || options;
             const radio = document.createElement('input');
-            radio.value = value;
+            radio.value = value || options;
             radio.type = 'radio';
             radio.name = values.map(el => el.value);
             radio.addEventListener('change', hadleChange)
