@@ -55,12 +55,20 @@ const element = () => {
             const radio = document.createElement('input');
             radio.value = value;
             radio.type = 'radio';
-            radio.name = values.map(el=>el.value);
+            radio.name = values.map(el => el.value);
             radio.addEventListener('change', hadleChange)
             lbl.prepend(radio);
             div.appendChild(lbl);
         })
         return div;
     }
-    return { select, checkbox, radio }
+    //zwróć przycisk
+    const btn = (value, hadleClick) => {
+        const inp = document.createElement('input');
+        inp.value = value;
+        inp.type = 'button';
+        inp.addEventListener('click', hadleClick)
+        return inp;
+    }
+    return { select, checkbox, radio, btn}
 }
