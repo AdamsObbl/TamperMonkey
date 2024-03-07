@@ -11,9 +11,9 @@ const waitForEl = async (selector, duration) => {
     return document.querySelector(selector) || waitForEl(selector, duration);
 }
 //gotowe elementy HTML
-const element = () => {
+const element = {
     //zwróć select z options
-    const select = (values, hadleChange, style) => {
+    select : (values, hadleChange, style) => {
         const select = document.createElement('select');
         Object.assign(select.style, style);
         const optionDef = document.createElement('option');
@@ -31,15 +31,16 @@ const element = () => {
         })
         select.addEventListener('change', hadleChange)
         return select;
-    }
+    },
     //zwróć grupę checkboxów,
-    const checkbox = (values, hadleChange) => {
+    checkbox : (values, hadleChange, style) => {
         const div = document.createElement('div');
         values.forEach((options) => {
             const { value, text } = options;
             const lbl = document.createElement('label');
-            lbl.innerText =  text || value || options;;
+            lbl.innerText =  text || value || options;
             const check = document.createElement('input');
+            Object.assign(check.style, style);
             check.value = value || options;
             check.type = 'checkbox';
             check.addEventListener('change', hadleChange);
@@ -47,15 +48,16 @@ const element = () => {
             div.appendChild(lbl);
         })
         return div;
-    }
+    },
     //zwróć grupę radio buttonów
-    const radio = (values, hadleChange) => {
+    radio : (values, hadleChange, style) => {
         const div = document.createElement('div');
         values.forEach((options) => {
             const { value, text } = options;
             const lbl = document.createElement('label');
             lbl.innerText = text || value || options;
             const radio = document.createElement('input');
+            Object.assign(radio.style, style);
             radio.value = value || options;
             radio.type = 'radio';
             radio.name = values.map(el => el?.value||el);
@@ -64,14 +66,14 @@ const element = () => {
             div.appendChild(lbl);
         })
         return div;
-    }
+    },
     //zwróć przycisk
-    const btn = (value, hadleClick) => {
+    btn : (value, hadleClick, style) => {
         const inp = document.createElement('input');
-        inp.value = value;
+        Object.assign(inp.style, style);
+        inp.value = value||'';
         inp.type = 'button';
         inp.addEventListener('click', hadleClick)
         return inp;
     }
-    return { select, checkbox, radio, btn}
 }
