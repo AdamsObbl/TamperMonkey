@@ -86,3 +86,26 @@ const element = {
         return lbl;
     },    
 };
+//mapa polskich znaków
+const polishChars = {
+    'ą': 'a',
+    'ć': 'c',
+    'ę': 'e',
+    'ł': 'l',
+    'ń': 'n',
+    'ó': 'o',
+    'ś': 's',
+    'ź': 'z',
+    'ż': 'z',
+    'Ą': 'A',
+    'Ć': 'C',
+    'Ę': 'E',
+    'Ł': 'L',
+    'Ń': 'N',
+    'Ó': 'O',
+    'Ś': 'S',
+    'Ź': 'Z',
+    'Ż': 'Z',
+};
+//usuń polskie litery z tekstu zastępując je łacińskimi
+const replacePolish=(string)=>string.replace(/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, (char)=>polishChars[char] || char);
