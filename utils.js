@@ -76,4 +76,4 @@ const element = {
         inp.addEventListener('click', hadleClick)
         return inp;
     }
-}
+};
