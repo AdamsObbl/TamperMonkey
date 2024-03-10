@@ -137,7 +137,7 @@ const createModal = (title, content) => {
             fontSize: '0.75em',
             padding: '5px'
         })
-        return div;
+        return modal.appendChild(div);
     }
 
     const modalStyle = {
