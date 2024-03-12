@@ -145,3 +145,21 @@ const urlSearchParamsISOString = (json) => {
     };
     return text.replace(/%[0-9A-Fa-f]{2}%[0-9A-Fa-f]{2}/g, (match) => replacements[match] || match);
 };
+//kopiowanie textu do schowka po staremu
+const _oldCopyToClipBoard = (str) => {
+    const textArea = document.createElement('textarea');
+    Object.assign(textArea.style, { position: 'fixed', opacity: 0 });
+    textArea.value = str;
+    document.body.prepend(textArea);
+    textArea.select();
+    document.execCommand?.('copy');
+    textArea.remove();
+}
+//kopiowanie textu do schowka
+const copyToClipBoard = async (str) => {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (error) {
+            _oldCopyToClipBoard(str)
+        }
+}
