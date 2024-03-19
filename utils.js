@@ -82,6 +82,7 @@ const element = {
         lbl.innerText = text || '';
         const inp = document.createElement('input');
         inp.value = value;
+        inp.type = 'text';
         Object.assign(inp.style, style);
         inp.addEventListener('input', hadleInput);
         lbl.appendChild(inp);
