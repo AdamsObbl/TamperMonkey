@@ -1,4 +1,4 @@
-const createModal = (title, content) => {
+const createModal = (title, content, parent=document.body) => {
     const modal = document.createElement('div');
     let _title = title || 'Modal';
     let _content = content;
@@ -156,7 +156,7 @@ const createModal = (title, content) => {
 
     Object.assign(modal.style, modalStyle);
 
-    return Object.assign(document.body.appendChild(modal), {
+    return Object.assign(parent.appendChild(modal), {
         show, hide,
         titleBar: titleBarModal(),
         body: bodyModal(),
