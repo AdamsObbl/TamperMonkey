@@ -38,7 +38,7 @@ const element = {
         values.forEach((options) => {
             const { value, text, checked } = options;
             const lbl = document.createElement('label');
-            lbl.innerText = text || value || options;
+            lbl.innerText = text||text===''?text: value || options;
             const check = document.createElement('input');
             Object.assign(check.style, style);
             check.value = value || options;
