@@ -36,13 +36,14 @@ const element = {
     checkbox: (values, hadleChange, style) => {
         const div = document.createElement('div');
         values.forEach((options) => {
-            const { value, text } = options;
+            const { value, text, checked } = options;
             const lbl = document.createElement('label');
             lbl.innerText = text || value || options;
             const check = document.createElement('input');
             Object.assign(check.style, style);
             check.value = value || options;
             check.type = 'checkbox';
+            check.checked = checked;
             check.addEventListener('change', hadleChange);
             lbl.prepend(check);
             div.appendChild(lbl);
