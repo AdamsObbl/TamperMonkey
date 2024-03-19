@@ -77,10 +77,11 @@ const element = {
         inp.addEventListener('click', hadleClick)
         return inp;
     },
-    txt: (value, hadleInput, style) => {
+    txt: (value, text, hadleInput, style) => {
         const lbl = document.createElement('label');
-        lbl.innerText = value || '';
+        lbl.innerText = text || '';
         const inp = document.createElement('input');
+        inp.value = value;
         Object.assign(inp.style, style);
         inp.addEventListener('input', hadleInput);
         lbl.appendChild(inp);
