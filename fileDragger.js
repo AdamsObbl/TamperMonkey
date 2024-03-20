@@ -58,7 +58,6 @@ let readFile=(file)=>{
     //copy me and change
 }
 
-
 const handleDrop = (e) => {
     e.preventDefault();
     if (!isCorectFile(e.dataTransfer)) {
