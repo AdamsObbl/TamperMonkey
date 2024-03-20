@@ -1,3 +1,7 @@
+let readFile=(file)=>{
+    //copy me and change
+}
+
 const suppExtension = {
     docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 }
@@ -52,10 +56,6 @@ const getArrayBuffer = (file) => {
         };
         reader.readAsArrayBuffer(file);
     });
-}
-
-let readFile=(file)=>{
-    //copy me and change
 }
 
 const handleDrop = (e) => {
