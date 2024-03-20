@@ -1,4 +1,4 @@
-const createFileDragger=(text, readFileFn, resetFn) => {
+const createFileDragger=(text='upuść tutaj plik', readFileFn=fn=>fn, resetFn=fn=>fn) => {
     const suppExtension = {
         docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     }
