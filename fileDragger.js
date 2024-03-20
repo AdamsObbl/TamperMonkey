@@ -54,9 +54,9 @@ const getArrayBuffer = (file) => {
     });
 }
 
-// const readFile=(file)=>{
-//     //copy me and change
-// }
+let readFile=(file)=>{
+    //copy me and change
+}
 
 
 const handleDrop = (e) => {
