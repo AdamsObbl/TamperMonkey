@@ -54,6 +54,10 @@ const getArrayBuffer = (file) => {
     });
 }
 
+const readFile=(file)=>{
+    //copy me and change
+}
+
 
 const handleDrop = (e) => {
     e.preventDefault();
@@ -63,7 +67,7 @@ const handleDrop = (e) => {
     const [item] = e.dataTransfer.items;
     const file = item.getAsFile();
     clearAfterAddFile(e.target, file.name);
-    //do things with file
+    readFile(file);
 };
 
 const isCorectFile = (dataTransfer) => {
@@ -94,7 +98,7 @@ const handlechangeFile = function(e) {
         return;
     }
     clearAfterAddFile(this.parentElement, file.name);
-    //do things with file
+    readFile(file);
 }
 
 const handleDragLeave = (e) => {
