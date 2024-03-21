@@ -108,6 +108,7 @@ const createFileDragger=(text='upuść tutaj plik', readFileFn=fn=>fn, resetFn=f
         dropZone.addEventListener('dragleave', handleDragLeave);
         const btn = addButtom();
         dropZone.appendChild(btn);
+        dropZone.suppExtension = suppExtension;
         return dropZone;
     }
     return fileDragger(text,readFileFn, resetFn);
