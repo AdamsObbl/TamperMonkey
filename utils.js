@@ -88,6 +88,19 @@ const element = {
         lbl.appendChild(inp);
         return lbl;
     },
+    num: (value, text, hadleInput, range, style) => {
+        const lbl = document.createElement('label');
+        lbl.innerText = text || '';
+        const inp = document.createElement('input');
+        inp.type = 'number';
+        inp.value = value;
+        inp.min = range.min;
+        inp.max = range.max;
+        Object.assign(inp.style, style);
+        inp.addEventListener('input', hadleInput);
+        lbl.appendChild(inp);
+        return lbl;
+    },
 };
 //mapa polskich znaków
 const polishChars = {
