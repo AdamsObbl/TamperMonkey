@@ -71,7 +71,7 @@ const element = {
     //zwróć przycisk
     btn: (value, hadleClick, style) => {
         const inp = document.createElement('input');
-        Object.assign(inp.style, style);
+        Object.assign(inp.style, {cursor:'pointer'}, style);
         inp.value = value || '';
         inp.type = 'button';
         inp.addEventListener('click', hadleClick)
