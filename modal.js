@@ -1,4 +1,4 @@
-const createModal = (title, content, parent=document.body) => {
+const createModal = (title, content, parent=document.body, isAutoclose=true) => {
     const modal = document.createElement('div');
     let _title = title || 'Modal';
     let _content = content;
@@ -31,7 +31,7 @@ const createModal = (title, content, parent=document.body) => {
 
     const handleMouseDown = (e) => {
         if (!modal.contains(e.target)) {
-            modal.style.display = 'none';
+            isAutoclose&&(modal.style.display = 'none');
         }
     }
 
