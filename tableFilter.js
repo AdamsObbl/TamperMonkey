@@ -1,4 +1,4 @@
-import { isGood } from './utils.js';
+import { replacePolish } from './utils.js';
 
     //funkcja zwracająca pasek informujący
     const loadingUi = (text) => {
