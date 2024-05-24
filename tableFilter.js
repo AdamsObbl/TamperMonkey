@@ -1,3 +1,5 @@
+const { replacePolish  } = require('./utils.js');
+
     //funkcja zwracająca pasek informujący
     const loadingUi = (text) => {
         const ui = document.createElement('div');
