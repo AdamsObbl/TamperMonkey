@@ -43,13 +43,13 @@
     };
 
     // Funkcja obsługująca filtrowanie podczas pisania w inputach
-    const handleInputFilter = (table, filterRow) => {
+    const handleInputFilter = (table, filterRow,isHeader) => {
         const loading = loadingUi('czekaj..');
         document.body.appendChild(loading);
         const rows = table.rows;
         const rowsData = [...rows].map(row => [...row.cells].map(cell => replacePolish(cell.innerText.toLowerCase())));
         const filterCells = [...filterRow.cells].map(cell => replacePolish(cell.firstChild.value.toLowerCase()));
-        updateRows(2, rows, rowsData, filterCells, loading);
+        updateRows(isHeader?2:1, rows, rowsData, filterCells, loading);
     };
 
     // Funkcja debounce
@@ -63,18 +63,18 @@
     }
 
     // Funkcja dodająca nagłówek filtrujący
-    const addFiltrationHeader = (table, filterRow) => {
+    const addFiltrationHeader = (table, filterRow,isHeader) => {
         const cell = filterRow.insertCell();
         const inp = document.createElement('input');
         inp.style.width = 'calc(100% - 5px)';
         const handleInputFilterDebounced = debounce(handleInputFilter, 500);
-        inp.addEventListener('input', (e) => handleInputFilterDebounced(table, filterRow));
+        inp.addEventListener('input', (e) => handleInputFilterDebounced(table, filterRow,isHeader));
         cell.appendChild(inp);
     }
 
     // Funkcja dodająca filtrację do tabeli
-    const addFiltration = (table) => {
+    const addFiltration = (table,isHeader=true) => {
         const [header] = table.rows;
         const filterRow = table.insertRow(0);
-        [...header.cells].forEach(() => addFiltrationHeader(table, filterRow));
+        [...header.cells].forEach(() => addFiltrationHeader(table, filterRow,isHeader));
     }
