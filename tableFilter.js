@@ -1,5 +1,3 @@
-import { replacePolish } from './utils.js';
-
     //funkcja zwracająca pasek informujący
     const loadingUi = (text) => {
         const ui = document.createElement('div');
