@@ -34,8 +34,8 @@ const insertChild = (parent, direction, child, element) => {
     }
 }
 
-export const craftelm = ({ type, ...options }, parent, direction, child) => {
-    const element = document.createElement(type);
+export const craftelm = ({ nodeName, ...options }, parent, direction, child) => {
+    const element = document.createElement(nodeName);
     Object.entries(options).forEach(assignOptions(element));
     insertChild(parent, direction, child, element);
     return element;
